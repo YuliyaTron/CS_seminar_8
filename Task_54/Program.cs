@@ -8,8 +8,7 @@
 // 2 3 5 9
 // 2 4 4 8
 
-
-
+Console.Clear();
 Console.Write("Введите количество строк: ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов: ");
@@ -53,22 +52,22 @@ void PrintMatrix(int[,] arr)
 
 void SortDescendingStrings(int[,] arr)
 {
-for (int i = 0; i < arr.GetLength(0); i++)
-{
-    for (int j = 0; j < arr.GetLength(1) - 1; j++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int z = 0; z < arr.GetLength(1) - 1; z++)
+        for (int j = 0; j < arr.GetLength(1) - 1; j++)
         {
-            if (arr[i, z] < arr[i, z + 1]) //для изменения сортировки поменять знак < на противоположный
+            for (int z = 0; z < arr.GetLength(1) - 1; z++)
             {
-                int temp = 0;
-                temp = arr[i, z];
-                arr[i, z] = arr[i, z + 1];
-                arr[i, z + 1] = temp;
+                if (arr[i, z] < arr[i, z + 1])
+                {
+                    int temp = 0;
+                    temp = arr[i, z];
+                    arr[i, z] = arr[i, z + 1];
+                    arr[i, z + 1] = temp;
+                }
             }
         }
     }
-}
 }
 
 int[,] matrix = CreateMatrixRndInt(m, n, min, max);
